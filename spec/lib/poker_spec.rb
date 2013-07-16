@@ -14,6 +14,7 @@ describe Poker do
   # two pairs
   let(:player1) {
     Player.new(
+      'Player 1',
       [
         Card.new('J', 'C', 11),
         Card.new('2', 'C', 2),
@@ -27,6 +28,7 @@ describe Poker do
   #poker
   let(:player2) {
     Player.new(
+      'Player 2',
       [
         Card.new('K', 'C', 13),
         Card.new('K', 'D', 13),
@@ -40,6 +42,7 @@ describe Poker do
   #straight
   let(:player3) {
     Player.new(
+      'Player 3',
       [
         Card.new('8', 'C', 8),
         Card.new('9', 'D', 9),
@@ -56,6 +59,14 @@ describe Poker do
     describe :validate_hand do
       it 'should evaluate player 1 according to the selected rules' do
         subject.players[0].value.should == 99
+      end
+    end
+
+    describe :winner do
+      it 'returns the player who wins this hand' do
+        player1.stub(:value).and_return(3)
+        player2.stub(:value).and_return(6)
+        subject.winner.should == player3
       end
     end
   end

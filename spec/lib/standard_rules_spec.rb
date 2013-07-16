@@ -5,6 +5,7 @@ describe StandardRules do
   # two pairs
   let(:player1) {
     Player.new(
+      'Player 1',
       [
         Card.new('J', 'C', 11),
         Card.new('2', 'C', 2),
@@ -18,6 +19,7 @@ describe StandardRules do
   #poker
   let(:player2) {
     Player.new(
+      'Player 2',
       [
         Card.new('K', 'C', 13),
         Card.new('K', 'D', 13),
@@ -31,6 +33,7 @@ describe StandardRules do
   #straight
   let(:player3) {
     Player.new(
+      'Player 3',
       [
         Card.new('8', 'C', 8),
         Card.new('9', 'D', 9),

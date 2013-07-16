@@ -1,9 +1,11 @@
 # Class to deal with the hand a player has on a game
 class Player
 
+  attr_reader   :name
   attr_accessor :value
 
-  def initialize(cards)
+  def initialize(name, cards)
+    @name  = name
     @cards = cards
   end
 

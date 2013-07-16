@@ -31,7 +31,7 @@ describe Player do
     ]
   }
 
-  subject { described_class.new(hand1) }
+  subject { described_class.new('Player 1', hand1) }
 
   describe :methods do
     describe :pairs do
@@ -64,7 +64,7 @@ describe Player do
 
     describe :straight? do
       it 'returns true if hand is a straight' do
-        hand = described_class.new(hand2)
+        hand = described_class.new('Player 2', hand2)
         hand.straight?.should be
       end
 
@@ -75,7 +75,7 @@ describe Player do
 
     describe :flush? do
       it 'returns true if hand is a flush' do
-        hand = described_class.new(hand3)
+        hand = described_class.new('Player 3', hand3)
         hand.flush?.should be
       end
 
