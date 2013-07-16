@@ -44,4 +44,15 @@ class Poker
   def check_two_or_full(player)
     player.value = player.any_pair_has?(3) ? 7 : 3
   end
+
+  def check_flush(player)
+    if player.straight?
+      check_straight(player)
+    elsif player.flush?
+      check_flush(player)
+    else
+      #High card
+      player.value = 1
+    end
+  end
 end

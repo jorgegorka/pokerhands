@@ -11,6 +11,16 @@ describe Player do
     ]
   }
 
+  let(:hand2) {
+    [
+      Card.new('2', 'C', 2),
+      Card.new('3', 'C', 3),
+      Card.new('4', 'D', 4),
+      Card.new('5', 'C', 5),
+      Card.new('6', 'H', 6)
+    ]
+  }
+
   subject { described_class.new(hand1) }
 
   describe :methods do
@@ -33,6 +43,23 @@ describe Player do
 
       it 'returns false if there are not requested number of equal cards' do
         subject.any_pair_has?(3).should be_false
+      end
+    end
+
+    describe :values do
+      it 'returns the values of the cards sorted' do
+        subject.values.should == [2, 2, 6, 11, 11]
+      end
+    end
+
+    describe :straight? do
+      it 'returns true if hand is a straight' do
+        hand = described_class.new(hand2)
+        hand.straight?.should be
+      end
+
+      it 'returns false if hand is not a straight' do
+        subject.straight?.should be_false
       end
     end
   end

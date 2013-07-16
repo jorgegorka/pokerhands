@@ -7,6 +7,7 @@ class Player
     @cards = cards
   end
 
+  # returns the number of pairs for each value
   def pairs
     pairs = Hash.new(0)
     @cards.each do |card|
@@ -16,7 +17,13 @@ class Player
     pairs
   end
 
-  # both methods are equal (should refactor later)
+  # return an array of values sorted
+  def values
+    @cards.map(&:value).sort
+  end
+
+  # returns the number of pairs for each suit
+  # both methods pairs and suit are equal (should refactor later)
   def suit
     pairs = Hash.new(0)
     @cards.each do |card|
@@ -28,5 +35,16 @@ class Player
 
   def any_pair_has?(value)
     pairs.has_value? value
+  end
+
+  def straight?
+    (values <=> create_consecutive(values[0])) == 0
+  end
+
+  private
+
+  def create_consecutive(start)
+    end_range = start + (@cards.size - 1)
+    [*start..end_range]
   end
 end
