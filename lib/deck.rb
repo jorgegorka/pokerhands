@@ -7,14 +7,6 @@ class Deck
 
   private
 
-  def random_card
-    "#{random_number}#{random_suit}"
-  end
-
-  def game_hand
-    @game_hand ||= []
-  end
-
   def full_deck
     @full_deck ||= create_full_deck
   end
