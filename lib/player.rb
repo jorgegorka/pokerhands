@@ -1,6 +1,8 @@
 # Class to deal with the hand a player has on a game
 class Player
 
+  attr_accessor :value
+
   def initialize(cards)
     @cards = cards
   end
@@ -22,5 +24,9 @@ class Player
     end
     pairs.delete_if {|key, value| value == 1 }
     pairs
+  end
+
+  def any_pair_has?(value)
+    pairs.has_value? value
   end
 end

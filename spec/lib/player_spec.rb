@@ -25,5 +25,15 @@ describe Player do
         subject.suit.size.should == 1
       end
     end
+
+    describe :any_pair_has? do
+      it 'returns true if there are the requested number of equal cards' do
+        subject.any_pair_has?(2).should be
+      end
+
+      it 'returns false if there are not requested number of equal cards' do
+        subject.any_pair_has?(3).should be_false
+      end
+    end
   end
 end
