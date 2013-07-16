@@ -1,15 +1,6 @@
 require 'spec_helper'
 
-class TestRules
-  def initialize(player)
-  end
-
-  def apply
-    99
-  end
-end
-
-describe Poker do
+describe StandardRules do
 
   # two pairs
   let(:player1) {
@@ -50,12 +41,19 @@ describe Poker do
     )
   }
 
-  subject { described_class.new([player1, player2, player3], TestRules) }
 
   describe :methods do
-    describe :validate_hand do
-      it 'should evaluate player 1 according to the selected rules' do
-        subject.players[0].value.should == 99
+    describe :apply do
+      it 'should evaluate player 1 as two pairs' do
+        described_class.new(player1).apply.should == 3
+      end
+
+      it 'should evaluate player 2 as poker' do
+        described_class.new(player2).apply.should == 8
+      end
+
+      it 'should evaluate player 3 as straight' do
+        described_class.new(player3).apply.should == 5
       end
     end
   end
