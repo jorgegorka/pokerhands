@@ -4,6 +4,10 @@ class StandardRules
     @player = player
   end
 
+  def self.card_per_hand
+    5
+  end
+
   def apply
     (@player.pairs.size > 0) ? check_pairs : check_flush
   end

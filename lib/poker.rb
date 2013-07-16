@@ -11,10 +11,6 @@ class Poker
     ordered_players.last
   end
 
-  def cards_per_hand
-    5
-  end
-
   private
 
   def generate_hands(rules)
