@@ -9,8 +9,15 @@ class LeCroupier
   end
 
   def winner
-    @game.new(@players_with_cards, @rules)
-    "#{winner_message} we have a winner! Monsieur: #{@game.winner.name}"
+    hand = @game.new(@players_with_cards, @rules)
+    "#{winner_message} we have a winner! Monsieur: #{hand.winner.name}"
+  end
+
+  def show_hand
+    @players_with_cards.each do |player|
+      puts "Hand for #{player.name}"
+      puts "#{player.show_cards}"
+    end
   end
 
   private
@@ -20,7 +27,7 @@ class LeCroupier
   end
 
   def generate_cards
-    assign_card_to_players(Deck.new.shuffle(num_cards))
+    assign_cards_to_players(Deck.new.shuffle(num_cards))
   end
 
   def num_cards

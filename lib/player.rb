@@ -24,6 +24,13 @@ class Player
     @cards.map(&:value).sort
   end
 
+  # return the cards in a human readable format
+  def show_cards
+    @cards.each.map do |card|
+      "#{card.number}#{card.suit}"
+    end
+  end
+
   # returns the number of pairs for each suit
   # both methods pairs and suit are equal (should refactor later)
   def suit

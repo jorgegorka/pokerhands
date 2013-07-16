@@ -4,7 +4,7 @@ class StandardRules
     @player = player
   end
 
-  def self.card_per_hand
+  def self.cards_per_hand
     5
   end
 

@@ -62,6 +62,13 @@ describe Player do
       end
     end
 
+    describe :show_cards do
+      it 'returns the cards human readable' do
+        subject.show_cards.should == ['JC', '2C', 'JD', '6C', '2H']
+      end
+    end
+
+
     describe :straight? do
       it 'returns true if hand is a straight' do
         hand = described_class.new('Player 2', hand2)
