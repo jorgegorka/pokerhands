@@ -15,7 +15,7 @@ class Deck
     cards = []
     values.each do |k, v|
       suits.each do |suit|
-        cards << "#{k}#{suit}"
+        cards << Card.new(k, suit, v)
       end
     end
     cards
@@ -27,19 +27,19 @@ class Deck
 
   def values
     {
-      2 => 2,
-      3 => 2,
-      4 => 2,
-      5 => 2,
-      6 => 2,
-      7 => 2,
-      8 => 2,
-      9 => 2,
-      'T' => 2,
-      'J' => 2,
-      'Q' => 2,
-      'K' => 2,
-      'A' => 2
+      '2' => 2,
+      '3' => 3,
+      '4' => 4,
+      '5' => 5,
+      '6' => 6,
+      '7' => 7,
+      '8' => 8,
+      '9' => 9,
+      'T' => 10,
+      'J' => 11,
+      'Q' => 12,
+      'K' => 13,
+      'A' => 14
     }
   end
 end
