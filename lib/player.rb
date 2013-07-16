@@ -41,6 +41,10 @@ class Player
     (values <=> create_consecutive(values[0])) == 0
   end
 
+  def flush?
+    ((suit.size == 1) and (suit.first[1] == 5))
+  end
+
   private
 
   def create_consecutive(start)

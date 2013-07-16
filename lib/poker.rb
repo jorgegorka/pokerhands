@@ -46,13 +46,18 @@ class Poker
   end
 
   def check_flush(player)
-    if player.straight?
-      check_straight(player)
+    if straight_flush?(player)
+      player.value = 9
     elsif player.flush?
-      check_flush(player)
+      player.value = 6
+    elsif player.straight?
+      player.value = 5
     else
-      #High card
       player.value = 1
     end
+  end
+
+  def straight_flush?(player)
+    player.straight? and player.flush?
   end
 end

@@ -21,6 +21,16 @@ describe Player do
     ]
   }
 
+  let(:hand3) {
+    [
+      Card.new('2', 'C', 2),
+      Card.new('3', 'C', 3),
+      Card.new('T', 'C', 10),
+      Card.new('5', 'C', 5),
+      Card.new('A', 'C', 14)
+    ]
+  }
+
   subject { described_class.new(hand1) }
 
   describe :methods do
@@ -60,6 +70,17 @@ describe Player do
 
       it 'returns false if hand is not a straight' do
         subject.straight?.should be_false
+      end
+    end
+
+    describe :flush? do
+      it 'returns true if hand is a flush' do
+        hand = described_class.new(hand3)
+        hand.flush?.should be
+      end
+
+      it 'returns false if hand is not a flush' do
+        subject.flush?.should be_false
       end
     end
   end
